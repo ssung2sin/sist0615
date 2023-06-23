@@ -18,16 +18,15 @@ public class ExChristmasTree {
 				break;
 			}
 			for(i=1;i<=stair;i++) {
-			
-				for(star=1;star<=(2*i-1);star++) {
 				
-					for(space=1;space<=stair-i;space++) {
-						if(star>=2)
-							continue;
+				for(space=1;space<=stair-i;space++) {
 						System.out.print(" ");
 					}
+				
+				for(star=1;star<=(2*i-1);star++) {
 					System.out.print("*");
-				}
+					}
+				
 				System.out.println();
 			}
 		}

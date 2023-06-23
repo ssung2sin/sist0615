@@ -27,10 +27,10 @@ public class QuizForWhile_08 {
 			if(age>=50) {
 				fifty +=1;
 			}
-			else if(age>=30&&age<50) {
+			else if(age>=30) {
 				thirty+=1;
 			}
-			else if(age>0&& age<30){
+			else if(age>0){
 				etc+=1;
 			}
 			else if(age==0) {
@@ -46,10 +46,42 @@ public class QuizForWhile_08 {
 		
 	}
 	
+	public static void quiz2() {
+		
+		//Q. 총 10개의 다양한 숫자(양수,음수)를 입력받아 양수의 갯수와 음수의 갯수를 구하시오
+		/*
+		 * 1: 45
+		 * 2: -23
+		 * 
+		 * ==============
+		 * 양수갯수: 6
+		 * 음수갯수: 3
+		 */
+		
+		Scanner sc = new Scanner(System.in);
+		int a, plus=0 ,minus=0;
+		System.out.println("다양한 숫자 10개를 입력하시오.");
+		
+		for(int i=1;i<=10;i++) {
+			System.out.print(i+" : ");
+			a=sc.nextInt();
+			if(a>0) {
+				plus ++;
+			}
+			else if(a<0) {
+				minus++;
+			}
+		}
+		System.out.println();
+		System.out.println("==========");
+		System.out.println("양수갯수: "+plus);
+		System.out.println("음수갯수: "+minus);
+	}
+	
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		quiz1();
+		quiz2();
 
 	}
 
