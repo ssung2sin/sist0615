@@ -1,7 +1,5 @@
 package day0630;
 
-import day0630.Outer.Inner;
-
 class Outer{
 	
 	String name="이민규";
