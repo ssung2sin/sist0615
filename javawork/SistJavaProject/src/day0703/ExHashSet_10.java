@@ -11,7 +11,6 @@ import java.util.Set;
 public class ExHashSet_10 {
 
 	public static void main(String[] args) {
-		//컬렉션-자료구조(set,Vector,ArrayList)
 		//컬렉션이 복수의 자료형 저장_안정성이 떨어질 수 있으므로 나온것이 제네릭<>
 		//(인터페이스 or 클래스(<데이터형> 객체이름=new 클래스명<데이터형>;
 		
@@ -26,6 +25,7 @@ public class ExHashSet_10 {
 		set1.add("딸기");
 		set1.add("거봉");
 		set1.add("키위");
+		
 		
 		System.out.println("데이터 갯수: "+set1.size());
 		
