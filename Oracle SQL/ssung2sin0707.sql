@@ -45,7 +45,7 @@ insert into test values(4,'이영애',68.78,'1989-11-12');
 insert into test values(5,'이효리',88.96,sysdate);
 
 --alter
---나이를 저장할 column 추가, 무조건 nul로 추가
+--나이를 저장할 column 추가, 무조건 null로 추가
 --ALTER TABLE 테이블명 ADD 추가할column명 데이터타입;
 alter table test add age number(5);
 -- 이미 추가된 목록들은 다 null 이다.
@@ -85,8 +85,6 @@ alter table test rename column birth to birthday;
 drop table test;
 
 select * from test;
-
-
 
 
 
