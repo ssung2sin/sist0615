@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 클래스는 동시에 여러군데 사용가능(.으로 만든다)
+        아이디는 #으로 만드는데 딱 한군데 사용가능 */
+        .newjeans{
+            color:magenta;
+        }
+        div.iu{
+            color: green; font-size: 20pt; width: 200px; height: 100px;
+            border: 2px solid purple;
+        }
+        
+        #bts{
+            position: absolute;
+            top:400px;
+            left: 200px;
+            width: 200px;
+            height: 100px;
+            font-size: 20pt;
+            padding-left: 20px; /*안쪽의 왼쪽 여백*/
+            padding-top: 30px;
+            border: 3px dotted tomato;
+
+        }
+    </style>
+</head>
+<body>
+    <div style="color: brown; font-size: 15pt; 
+    background-color: bisque; width: 300px; height: 150px;">
+        안녕 오늘은 목요일이야.
+    </div>
+
+    <div class="newjeans">
+        helo hi~~~
+    </div>
+
+    <div class="iu">
+        Have a nice day!!
+    </div>
+
+    <font class="newjeans">
+        Have a nice day!!
+    </font>
+
+    <div id="bts">
+        여기는 쌍용 자바반 입니다
+    </div>
+</body>
+</html>

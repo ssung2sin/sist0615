@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tb1{
+            width: 400px;
+            border: 3px solid gray;
+            border-collapse: collapse;
+        }
+        .tb1 td,.tb1 th{
+            border: 1px solid gray;
+        }
+        .tb1 tr th{
+            background-color: aquamarine;
+        }
+        .tb1 tr td:hover{
+            background-color: yellowgreen;
+            color: black;
+        }
+        .tb2{
+            width: 200px;
+            height: 220px;
+            border:2px solid gray;
+        }
+        .tb2 tr,.tb2 td{
+            border: 2px solid black;
+            text-align: center;
+        }
+        .tb3{
+            width: 600px;
+            border: 3px solid black;
+            border-collapse: collapse;
+        }
+        .tb3 th:hover{
+            background-color: yellow;
+            color: blue;
+        }
+        .tb3 th,.tb3 td{
+            border: 2px solid gray;
+        }
+        .tb3 img{
+            width: 300px;
+        }
+        
+    </style>
+</head>
+<body>
+    <table border="1" style="width: 300px; border-collapse: collapse;">
+        <caption><b>[표 1]</b></caption>
+        <tr height="50" bgcolor="orange">
+            <td align="center">하나</td>
+            <td align="right" valign="top">둘</td>
+            <td valign="bottom" bgcolor="gray">셋</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" height="50">3칸합침</td>
+        </tr>
+    </table>
+
+    <hr style="border: 2px solid black;">
+
+    <table class="tb1">
+        <caption><b>[표 2]</b></caption>
+        <tr>
+            <th>쌍용 반</th>
+            <th>이름</th>
+            <th>휴대폰 번호</th>
+            <th>주소</th>
+        </tr>
+        <tr>
+            <th rowspan="4"><img src="../cheeze/201911271007782007_16.jpg" width="150px"></th>
+            <td>이성신</td>
+            <td>010-1245-5353</td>
+            <td>시흥</td>
+        </tr>
+        <tr>
+            <td>이민규</td>
+            <td>010-2553-2342</td>
+            <td>사가정</td>
+        </tr>
+        <tr>
+            <td>임형준</td>
+            <td>010-3264-4232</td>
+            <td>봉천동</td>
+        </tr>
+        <tr>
+            <td>박병주</td>
+            <td>010-4543-4326</td>
+            <td>서울시</td>
+        </tr>
+    </table>
+
+    <hr style="border: 2px solid black;">
+
+    <table class="tb2">
+        <caption><b>[표 문제_span]</b></caption>
+        <tr>
+            <td rowspan="2"><b>1</b></td>
+            <td colspan="2"><b>2</b></td>
+            <td><b>3</b></td>
+        </tr>
+        <tr>
+            <td colspan="3"><b>4</b></td>
+        </tr>
+        <tr>
+            <td><b>5</b></td>
+            <td><b>6</b></td>
+            <td><b>7</b></td>
+            <td><b>8</b></td>
+        </tr>
+    </table>
+
+    <hr style="border: 2px solid black;">
+
+    <table class="tb3">
+        <caption><b>[Quiz_#2 위키백과]</b></caption>
+        <tr>
+            <th>이름</th>
+            <th>사진</th>
+            <th>신상정보</th>
+        </tr>
+        <tr>
+            <td rowspan="4"><b>아이유</b></td>
+            <td rowspan="4"><img width="300px" height="250px" src="../cheeze/201911271007782007_16.jpg"
+                onmouseover="src='../cheeze/iu_01.jpg'"
+                onmouseout="src='../cheeze/201911271007782007_16.jpg'"></td>
+            <td>신상정보</td>
+        </tr>
+        <tr>
+            <td>나이:30세</td>
+        </tr>
+        <tr>
+            <td>소속사:EDAM</td>
+        </tr>
+        <tr>
+            <td>최신곡:StrawBerryMoon</td>
+        </tr>
+    </table>
+</body>
+</html>

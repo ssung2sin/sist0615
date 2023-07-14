@@ -1,0 +1,35 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #222;
+    height: 100%;
+}
+#container{
+    position: absolute;
+    margin-left: -425px;
+    width: 900px;
+    height: 100%;
+    background-color: #fff;
+    left: 50%;
+
+}
+
+aside{
+    float: left;
+    width: 300px;
+    padding: 20px 50px;
+    height: 100%;
+    background-color: lightgray;
+}
+aside img{
+    width: 225px;
+    height: 225px;
+    border-radius: 225px;
+}
+
+#main{
+    float: right;
+    padding: 40px;
+}
