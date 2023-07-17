@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function hello(){
+            alert("두번째 버튼을 클릭했습니다!")
+        }
+
+        //get=> 가져오는 메서드기 때문에 btn1의 경우, 아무것도 없는 값이기 때문에
+        //실행이 되지 않는다.
+        window.onload=function(){
+            var b=document.getElementById('btn1');
+            b.onclick=function(){
+              alert("3번째 버튼 클릭");
+            }
+        a}
+    </script>
+</head>
+<body>
+    <!-- 대따옴표 안에는 홑따옴표 쓰기!!! -->
+    <button type="button" onclick="alert('안녕하세요?')">함수 호출_직접 이벤트 호출</button>
+<br><br>
+
+<button type="button" onclick="hello()">자바 스크립트 사용자 함수 호출</button>
+
+<br><br>
+<button type="button" id="btn1">이벤트를 자바 스크립트로</button>
+
+</body>
+</html>

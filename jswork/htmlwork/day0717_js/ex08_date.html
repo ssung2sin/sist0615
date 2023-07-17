@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var date=new Date();
+        document.write("date.getFullYear() = "+date.getFullYear()+"<br>");
+        document.write("(date.getMonth()+1) =    "+(date.getMonth()+1)+"<br>");
+        document.write("date.getDate() = "+date.getDate()+"<br>");
+        document.write(date.getDay()+"<br>"); //1.월 2.화 ...
+
+        document.write("오늘은 "+date.getFullYear()+"년 "+(date.getMonth()+1)+"월 "+date.getDate()+"일 ");
+        switch(date.getDay()){
+            case 1: document.write("월요일 입니다<br>");
+                break;
+            case 2: document.write("화요일 입니다<br>");
+                break;
+            case 3: document.write("수요일 입니다<br>");
+                break;
+            case 4: document.write("목요일 입니다<br>");
+                break;
+            case 5: document.write("금요일 입니다<br>");
+                break;
+            case 6: document.write("토요일 입니다<br>");
+                break;
+            case 7: document.write("일요일 입니다<br>");
+        }
+        
+        //isNAN(not a Number):문자일 경우 true 숫자일 경우 false
+        document.write(isNaN(100)+"<br>"); //false
+        document.write(isNaN("Hello")+"<br>"); //true
+        document.write(isNaN("a100")+"<br>"); //true
+        document.write(isNaN("100")+"<br>"); //문자형 숫자도 숫자로 인식되어 false를 반환
+
+        
+    </script>
+</body>
+</html>
