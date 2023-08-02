@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <img src="../flower_ani/s5.JPG">
+    <img src="../flower_ani/s6.JPG">
+    <img src="../flower_ani/s7.JPG">
+    <img src="../flower_ani/s8.JPG">
+
+    <script>
+        $("img:eq(0)").hover(function(){
+            //45도회전(deg,rad,grad,turn(1회전,360deg)등이 있다.)
+            $(this).css("transform","rotate(45deg)");
+        },function(){
+            //0도로
+            $(this).css("transform","rotate(0deg)");
+        });
+
+        $("img:eq(1)").hover(function(){
+            //왼쪽 45도
+            $(this).css("transform","rotate(-45deg)");
+        },function(){
+            //0도로
+            $(this).css("transform","rotate(0deg)");
+        });
+
+        $("img:eq(2)").hover(function(){
+            //transform scale(확대,축소)
+            $(this).css("transform","scale(2,2)");
+        },function(){
+            //0도로
+            $(this).css("transform","scale(1,1)");
+        });
+
+        //translate(50px) 오른쪽으로 50px 이동합니다(왼쪽:음수)
+        $("img:eq(3)").hover(function(){
+            $(this).css("transform","translate(50px,50px)");
+        },function(){
+            $(this).css("transform","translate(0)");
+        })
+
+    </script>
+
+
+</body>
+</html>

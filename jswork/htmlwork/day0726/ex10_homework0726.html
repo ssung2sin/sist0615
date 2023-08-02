@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        .small{
+            border: 2px solid gray;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
+
+        .large{
+            border: 5px inset gold;
+            width: 300px;
+            height: 300px;
+            margin-top: 100px;
+            margin-left: 150px;
+            border-radius: 45px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- show 에 배열반복문 이용해서 이미지 5개 띄어준다
+         작은이미지는 css로 작게 5개 예쁘게 배치한다!
+         transform을 이용해서 작은이미지 가면 회전 벗어나면 제자리
+         큰이미지는 작은사진 가져온것 중 첫번째 이미지로 초기화이미지 둔다
+         큰 이미지도 예쁘게 css
+         작은이미지 클릭시 큰이미지 나오게 -->
+    <div id="show"></div>
+    <img src="" class="large" width="300px">
+    <script>
+        var imgarr=[{name:"../연예인사진/5.jpg"},
+        {name:"../연예인사진/6.jpg"},
+        {name:"../연예인사진/8.jpg"},
+        {name:"../연예인사진/11.jpg"},
+        {name:"../연예인사진/14.jpg"}];
+        var s="";
+        $.each(imgarr,function(i,ele){
+            s+="<img src='"+ele.name+"' width='100px' class='small'>";
+
+        })
+        $("#show").html(s);
+
+        $(".small").hover(function(){
+            $(this).css("transform","rotate(45deg)");
+        },function(){
+            $(this).css("transform","rotate(0)");
+        });
+        var imginit=($(".small").eq(0).attr("src"));
+        $(".large").attr("src",imginit);
+
+        $(".small").click(function(){
+            var img_src=$(this).attr("src");
+            $(".large").attr("src",img_src);
+        })
+    </script>
+</body>
+</html>

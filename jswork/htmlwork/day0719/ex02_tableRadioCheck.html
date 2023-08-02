@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border: 2px solid gray;
+            width: 500px;
+        }
+        tr,th,td{
+            border: 1px dotted gray;
+            font-size: 10px;
+        }
+
+        #output{
+            position: absolute;
+            left: 10px;
+            top: 300px;
+            width: 460px;
+            height: 200px;
+            border: 1px solid gray;
+            background-color: blanchedalmond;
+            padding: 20px;
+        }
+    </style>
+
+    <script>
+        function print(){
+            var gradeStr,langStr,friendStr;
+            var str="[정보]<br>"
+            var flag=false;
+
+            for(var i=0;i<frm.grade.length;i++){
+                if(frm.grade[i].checked){
+                    gradeStr="최종학력 : "+frm.grade[i].value+"<br>";
+                }
+            }
+            langStr="사용가능 언어: "
+            for(var i=0;i<frm.lang.length;i++){
+                if(frm.lang[i].checked){
+                    flag=true;
+                    langStr+=frm.lang[i].value+" ";
+                }
+            }
+            if(flag){
+                langStr+="입니다.<br>"
+            }
+            else{
+                langStr+="없습니다.<br>"
+            }
+            for(var i=0;i<frm.friend.length;i++){
+                if(frm.friend[i].selected){
+                    friendStr="가장 친한 친구: "+frm.friend[i].value+"입니다.<br>";
+                }
+            }
+
+            //output.style.background=frm.color.value; output의 배경 색깔 변경 하는 코드
+            output.innerHTML=str+gradeStr+langStr+friendStr+goHeight()+goWeight()+goDate()+goColor();
+        }
+        
+
+        function goWeight(num){
+            document.getElementById("out1").innerHTML=num;
+            var weight="몸무게 : "+frm.weight.value+"kg<br>"
+            return weight;
+        }
+
+
+        function goDate(){
+            out2.innerHTML="날짜: "+frm.birth.value;
+            var birth="생년월일 : "+frm.birth.value+"<br>";
+            return birth;
+        }
+
+        function goColor(){
+            out3.style.color=frm.color.value;
+            var color = "<b style='color: "+frm.color.value+"';>내가 좋아하는 색</b><br>";
+            return color;
+        }
+
+        function goHeight(){
+            out4.innerHTML=frm.height.value;
+            var height="키 : "+frm.height.value+"cm<br>";
+            return height;
+        }
+
+        function goImage(){
+
+        }
+
+    </script>
+</head>
+<body>
+    <form action="#" name="frm">
+        <table>
+            <caption><b>Radio&Check</b></caption>
+            <tr height="30">
+                <td>
+                    <b>최종학력을 선택하시오</b>
+                    <!-- radio는 name이 동일해야함! -->
+                    <!-- checked는 초기값 설정 -->
+                    <input type="radio" name="grade" value="고등학교" checked>고등학교&nbsp;
+                    <input type="radio" name="grade" value="전문대">전문대&nbsp;
+                    <input type="radio" name="grade" value="대학교">대학교&nbsp;
+                    <input type="radio" name="grade" value="대학원">대학원&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>본인이 가능한 프로그램 언어</b>
+                    <!-- checkbox는 중복선택 가능 -->
+                    <input type="checkbox" name="lang" value="C언어">C언어&nbsp;
+                    <input type="checkbox" name="lang" value="자바">자바&nbsp;
+                    <input type="checkbox" name="lang" value="파이썬">파이썬&nbsp;
+                    <input type="checkbox" name="lang" value="자바스크립트">자바스크립트&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>이미지 선택</b>
+                <input type="file" name="image" onchange="readURL(this)">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>우리반에서 가장 친한 친구</b>
+                    <select name="friend">
+                        <option value="성현">성현</option>
+                        <option value="현규">현규</option>
+                        <option value="성신">성신</option>
+                        <option value="형준">형준</option>
+                        <option value="민규">민규</option>
+                        <option value="희찬">희찬</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b id="out3">가장 좋아하는 색은?</b>
+                    <input type="color" name="color" onchange="goColor()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 키는?(cm)</b>
+                    <input type="number" name="height" min="140" max="210"
+                    value="150" step="2" onchange="goHeight()" >cm
+                    <span id="out4">0</span>cm
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 몸무게는?(kg)</b>
+                    <input type="number" name="weight" min="40" max="120"
+                    value="50" step="2"  onchange="goWeight(this.value)">kg
+
+                    <span id="out1">0</span>kg
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 생년월일</b>
+                    <input type="date" name="birth" value="2000-01-01"
+                    onchange="goDate()">
+
+                    <span id="out2"></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="서버에 전송" onclick="print()">
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+    <div id="output"></div>
+    
+    
+</body>
+</html> 

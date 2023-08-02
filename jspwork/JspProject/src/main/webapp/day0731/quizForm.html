@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="quizAction.jsp" method="post">
+		<table class="table table-dark table-sprited" style="width: 400px;">
+			<tr>	
+				<th>휴대폰</th>
+				<td>
+					<input type="text" name="name" placeholder="이름써!!
+					required="required" class="form-control" style="width: 150px;">
+				</td>
+			</tr>
+			
+			<tr>
+				<th>사이즈</th>
+				<td>
+					<input type="radio" name="size" value="64GB" checked>64기가
+					<input type="radio" name="size" value="128GB">128기가
+					<input type="radio" name="size" value="256GB">256기가
+				</td>
+			</tr>
+			<tr>
+				<th>색상</th>
+				<td>
+					<input type="checkbox" name="color" value="red">빨강
+					<input type="checkbox" name="color" value="blue">파랑
+					<input type="checkbox" name="color" value="magenta">핑크
+					<input type="checkbox" name="color" value="gray">회색
+				</td>
+			</tr>
+			<tr>
+				<th>추가상품</th>
+				<td>
+					<select name="sub">
+						<option value="폰케이스">폰케이스</option>
+						<option value="에어팟">에어팟</option>
+						<option value="버즈">버즈</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<input type="submit" value="전송" class="btn btn-danger" style="width: 150px;">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

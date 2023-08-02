@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h3 class="a"></h3>
+    <hr>
+    <h3 class="b">h3 내용을 이곳에 복사하세요</h3>
+
+    <script>
+        $("h3.a").html("만화 이미지 입니다.").append("<img src='../만화이미지/01.png'>");
+
+        //h3.a를 클릭시 "안의 코드 복사함"
+
+        var tag_code;
+
+        $("h3.a").click(function(){
+            
+            tag_code=$(this).html();
+            alert("안의 코드 복사함");
+        });
+
+        $("h3.b").click(function(){
+            $(this).html(tag_code);
+        })
+    </script>
+</body>
+</html>

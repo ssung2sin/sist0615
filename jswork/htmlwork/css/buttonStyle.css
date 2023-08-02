@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap');
+body{
+    font-family: 'geagu';
+}
+
+.btn{
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+.btn-green{
+    background-color: springgreen;
+    color: black;
+}
+
+.btn-blueviolet{
+    background-color: blueviolet;
+    color: black;
+}
+
+.btn-yellow{
+    background-color: yellow;
+    color: black;
+}
+.btn-black{
+    background-color: black;
+    color: white;
+}

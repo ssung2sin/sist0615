@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        li{
+            list-style: none;
+        }
+        div.wall ul.list li img{
+            width: 100%;
+        }
+        div.wall ul.list li{
+            width: 70px;
+            height: 70px;
+            float: left;
+            cursor: pointer;
+            margin-top: 10px;
+            margin-left: 10px;
+            border: 5px solid #333;
+        }
+
+        body{background-color: #fff;}
+
+        div.wall{
+            width: 800px;
+            height: 600px;
+            background-color: #999;
+            margin: 50px auto;
+        }
+        h1.title{
+            font-size: 30px;
+            position: absolute;
+            left: 985px;
+            top: 150px;
+            width: 150px;
+            font-family: "Nanum Pen Script";
+            font-weight: bold;
+        }
+        div.wall ul.list li.active{
+            border:7px solid blueviolet;
+            box-shadow: 5px 5px 5px pink;
+        }
+    </style>
+
+    <script>
+        $(function(){
+            //현재 클릭한 이미지의 부모인 li에 클래스 추가하기
+            $("ul.list img").click(function(){
+                $(this).parent().addClass("active");
+                $(this).parent().siblings().removeClass();
+
+                var title1=$(this).attr("title");
+                var src1=$(this).attr("src");
+                console.log(src1);
+                $("h1.title").html(title1);
+                $("div.wall").css("backgroundImage","url('"+src1+"')");
+            })
+
+            //부모태그의 형제태그에 들어있는 active클래스 제거
+
+            //클릭한 곳의 title 속성 얻어서  h1에 넣기
+
+            //클릭한 이미지를 배경에 넣기
+        })
+    </script>
+</head>
+<body>
+    <div class="wall">
+        <h1 class="title">Select Page</h1>
+        <img src="../jquery_img/cover2.png">
+        <ul class="list">
+            <li><img src="../jquery_img/b01.png" title="Pear"></li>
+            <li><img src="../jquery_img/b02.png" title="Check"></li>
+            <li><img src="../jquery_img/b03.png" title="bamboo"></li>
+            <li><img src="../jquery_img/b04.png" title="Pencil"></li>
+            <li><img src="../jquery_img/b05.png" title="Leaf"></li>
+            <li><img src="../jquery_img/b06.png" title="Forest"></li>
+        </ul>
+        <br><br><br>
+    </div>
+</body>
+</html>

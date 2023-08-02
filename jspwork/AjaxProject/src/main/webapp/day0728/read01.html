@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<title>Insert title here</title>
+</head>
+<body>
+	<img src="../image/cartoonImg/03.png">
+	<br>
+	<button type="button" class="btn btn-outline-info"
+	id="btn1">data1.xml읽기</button>
+	<button type="button" class="btn btn-outline-danger"
+	id="btn2">data1.json읽기</button>
+	<br>
+	<div id="result">결과출력</div>
+	
+	<script>
+		$("#btn1").click(function(){
+			$("#result").empty();
+			
+			//xml 읽기
+			$.ajax({
+				type:"get",
+				url:"data1.xml",
+				dataType:"xml",
+				success:function(data){
+					
+					var s="City: "+$(data).find("name").attr("city")+"<br>";
+					s+="Name: "+$(data).find("name").text()+"<br>";
+					s+="Age: "+$(data).find("age").text();
+					
+					$("#result").append(s);
+				},statusCode:{
+					404:function(){
+						alert("xml파일을 찾을수 없다고요.")
+					},
+					500:function(){
+						alert("서버오류... 코드를 다시한번 보시라이");
+					}
+				}
+			})
+		});
+		
+		$("#btn2").click(function(){
+			$("#result").empty();
+			
+			//json 읽기
+			$.ajax({
+				
+				type:"get", //데이터를 가져오는 방식 get 업로드 post;
+				url:"data1.json",
+				dataType:"json",
+				success:function(data){
+					
+					var s="";
+					s+="이름: "+data.name+"<br>"
+					s+="주소: "+data.addr+"<br>"
+					s+="점수: "+data.score+"<br>"
+					
+					$("#result").append(s);
+				},
+				statusCode:{
+					404:function(){
+						alert("json파일을 찾을수 없다고요.")
+					},
+					500:function(){
+						alert("서버오류... 코드를 다시한번 보시라이");
+					}
+				}
+			})
+		});
+	</script>
+</body>
+</html>

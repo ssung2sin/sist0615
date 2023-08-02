@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        #result{
+            width: 500px;
+            height: 200px;
+            font-family: '궁서체';
+            font-size: 25px;
+            padding: 10px;
+            border: 1px solid gray;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#btn1").click(function(){
+                var s="";
+
+                //연령대
+                var age=$("input[name='age']:checked").val();
+                s+="연령대: "+age+"대<br>"
+
+                //나라
+                var len=$("input[name='country']:checked").length;
+                s+="여행해본나라: ";
+
+                if(len==0){
+                    s+="없습니다."
+                }
+                else{
+                    var country=$("input[name='country']:checked").each(function(i){
+                        s+=$(this).val()+"&nbsp;";
+                    })
+
+                }
+                //코로나 백신
+                s+="<br>코로나 백신: "+($("#covid19").is(":checked")?"맞음":"안맞음")+"<br>";
+
+                //글씨체
+                var font_family=$("#selone").val();
+                console.log(font_family);
+                $("#result").css("font-family",font_family);
+
+                $("#result").html(s);
+            })
+
+        })
+    </script>
+    
+</head>
+<body>
+    <form action="#">
+        <legend>숙 제</legend>
+        <table class="table table-dark table-striped" style="width: 500px;">
+            <tr>
+                <th>당신의 연령대는?</th>
+                <td>
+                    <input type="radio" name="age" value="20" checked>20대
+                    <input type="radio" name="age" value="30">30대
+                    <input type="radio" name="age" value="40">40대
+                    <input type="radio" name="age" value="50">50대
+                </td>
+            </tr>
+
+            <tr>
+                <th>여행해본 나라는?</th>
+                <td>
+                    <label><input type="checkbox" name="country" value="일본">일본</label>
+                    <label><input type="checkbox" name="country" value="중국">중국</label>
+                    <label><input type="checkbox" name="country" value="미국">미국</label>
+                    <label><input type="checkbox" name="country" value="캐나다">캐나다</label>
+                    <label><input type="checkbox" name="country" value="유럽">유럽</label>
+                </td>
+            </tr>
+
+            <tr>
+                <th>코로나백신</th>
+                <td>
+                    <label><input type="checkbox" id="covid19"></label>
+                </td>
+            </tr>
+
+            <tr>
+                <th>글씨체</th>
+                <td>
+                    <select id="selone">
+                        <option value="Dongle">동글</option>
+                        <option value="Gaegu">개구</option>
+                        <option value="Nanum Pen Script">나눔 펜 스크립트</option>
+                        <option value="Sunflower">선플라워</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button type="button" id="btn1" class="btn btn-outline-success">결과전송</button>
+                </td>
+            </tr>
+        </table>
+
+        <div id="result"></div>
+    </form>
+</body>
+</html>

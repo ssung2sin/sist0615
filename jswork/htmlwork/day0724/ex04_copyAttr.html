@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>`
+    <title>Document</title>
+</head>
+<body>
+    <h3>이미지 클릭시 src,width를 얻어서 hr태그 다음에 같은 이름의 이미지 넣기!</h3>
+    <img src="../만화이미지/04.png" width="150px" title="나는 만화캐릭터">
+    <hr>
+    <div></div>
+
+    <script>
+        $("img").click(function(){
+
+            //값들 얻기
+            var selSrc=$(this).attr("src");
+            var selW=$(this).attr("width");
+
+            //사진값 복사
+            var copyImg = "<img src='"+selSrc+"' width='"+selW+"'>";
+
+            //hr다음에 넣기
+            $("hr").after(copyImg);
+
+            //타이틀 카피해서 div에 넣기
+            selT=$(this).attr("title");
+
+            $("div").html(selT).css({
+                "font-size":"20px",
+                "fontWeight":"bold"
+            });
+        })
+    </script>
+
+</body>
+</html>

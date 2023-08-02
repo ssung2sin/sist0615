@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+
+            //attr("속성"):해당 속성값 반환
+            //attr("속성","값"):해당 속성값으로 변경
+            //eq(0):0번 인덱스,첫번째를 의미
+
+
+            //alert("처음 로딩 시 호출!");
+           //$("#happy").css("color","red");//방법1
+           
+            $("#happy").css({               //방법2
+                "color":"red",
+                "backgroundColor":"gray",
+                "width":"300px",
+                "border":"2px solid green"
+            });
+
+            //selector가 복잡할 경우에도 간단 처리
+            $("div.hello>div").css({
+                "color":"blueviolet",
+                "fontSize":"2em",
+                "fontWeight":"bold"
+            })
+
+            //happy의 배경색을 얻어서 div.hello의 글자색으로 적용
+            var bg=$("#happy").css("background-color");
+            $("div.hello").css("color",bg);
+
+            //img bts아래이미지 width 150으로
+            $(".bts img").css("width","150px");
+            //img hello아래이미지 가로 200
+            $(".hello img").css("width","200px");
+            
+            //바디 전체공급
+            $("body").css("font-family","궁서체");
+
+            //bts의 속성이동, 변경
+            $("div.bts").css({
+                "position":"absolute",
+                "left":"300px",
+                "top":"400px",
+                "width":"200px",
+                "height":"250px",
+                "border":"3px groove gold"
+            });
+
+            //모든b태그 글자색 변경
+            $("b").css("color","magenta");
+
+            //b태그 중에서 1번,2번 인덱스만 변경
+            $("b:eq(1)").css("background-color","orange");
+            $("b").eq(2).css("background-color","pink");
+
+            //전체 b태그 중 첫번쩨 마지막
+            $("b:first").css("border","2px solid red");
+            $("b:last").css("border","4px dotted green");
+
+            //gt(3):3번이후 lt(3):3번 이전
+            $("b:gt(1)").css("font-size","30px"); //2번 인덱스 부터 변경
+            $("b:lt(1)").css("backgroundColor","pink");
+
+        })
+    </script>
+</head>
+<body>
+    <div class="hello">
+        div class hello
+    </div>
+    <div class="bts">
+        <b>div bts 아래 b태그<br></b>
+        <img src="../Food/2.jpg">
+    </div>
+    <div class="hello">
+        div class hello2
+        <img src="../Food/1.jpg">
+        <div>div hello 아래의 div 태그</div>
+    </div>
+    <b>단독 b태그 #1</b>
+    <b>단독 b태그 #2</b>
+    <b>단독 b태그 #3</b>
+
+    <h2 id="happy">h2 id is Happy</h2>
+    <h3 class="happy2">h3 class is happy2</h3>
+
+</body>
+</html>

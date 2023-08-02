@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style2.css">
+    <script src="../js/randomColor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+    <br><br><br><br><br>
+    <h2></h2>
+
+    <script>
+        //공6개에 1~6까지의 숫자넣기
+        var random;
+        $("div").each(function(i){
+            $(this).html((i+1)).css("background-color",randomColor());
+        })
+
+        $("div").mouseover(function(){
+           random=$(this).css("background-color");
+           $("h2").html(random).css("color",random);
+        })
+        $("div").mouseout(function(){
+            $("h2").empty();
+        })
+    </script>
+</body>
+</html>

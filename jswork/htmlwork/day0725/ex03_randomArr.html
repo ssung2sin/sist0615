@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+    <img src="">
+
+    <script>
+        //모든 이미지에 같은 이미지 넣고 너비 높이 보더
+        $("img").attr("src","../만화이미지/15.png").css({
+            "width":"100px",
+            "height":"100px",
+            "border":"3px dotted green"
+        });
+
+        //랜덤 이미지 5개
+        var imgarr=new Array();
+        imgarr[0]='../만화이미지/03.png';
+        imgarr[1]='../만화이미지/06.png';
+        imgarr[2]='../만화이미지/08.png';
+        imgarr[3]='../만화이미지/11.png';
+        imgarr[4]='../만화이미지/14.png';
+
+        //img태그에 마우스 올리면 5개의 랜덤 이미지중에 하나가 선택되고
+
+        //마우스 벗어나면 원래의 이미지가 된다
+
+        $("img").mouseover(function(){ //random값의 경우 parseint 해야함
+            var random=parseInt(Math.random()*5); //랜덤함수를 넣어야 하는이유 : 마우스 올릴때마다 새로운 값을 받아야함.
+            imgSrc=$(this).attr("src");
+            $(this).attr("src",imgarr[random]);
+        })
+        $("img").mouseout(function(){
+            $(this).attr("src",imgSrc);
+        })
+    </script>
+</body>
+</html>

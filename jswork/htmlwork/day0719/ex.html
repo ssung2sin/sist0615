@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 2px solid gray;
+            width: 500px;
+        }
+
+        tr,
+        th,
+        td {
+            border: 1px dotted gray;
+            font-size: 10pt;
+        }
+
+        #square {
+            border: 2px solid gray;
+            background-color: blanchedalmond;
+            width: 600px;
+            height: 350px;
+            margin-top: 20px;
+        }
+    </style>
+
+    <script>
+        function goWeight(num) {
+
+            document.getElementById("out1").innerHTML = num;
+
+        }
+
+        function goDate() {
+
+            out2.innerHTML = "날짜: " + frm.day.value;
+        }
+
+        function goColor(col) {
+
+            colout.style.background = col;
+        }
+
+        function goHeight(k) {
+            out3.innerHTML = k;
+        }
+    </script>
+    <script>
+            
+        function writeInfo() {
+
+            var school = "나의 최종학력은 ";
+            var language = "가능한 프로그램 언어는 ";
+            var bestfriends = "나의 가장 친한 친구는 ";
+            var flag = false;
+
+
+            for (var i = 0; i < frm.grade.length; i++) {
+                if (frm.grade[i].checked) {
+                    school = frm.grade[i].value;
+                }
+
+            }
+
+            square.innerHTML = school + "입니다<br>";
+
+            for (var i = 0; i < frm.lang.length; i++) {
+                if (frm.lang[i].checked) {
+
+                    flag = true;
+                    language += frm.lang[i].value;
+                }
+            }
+
+            if (!flag) {
+                language += "없습니다<br>"
+            } else {
+                language += "입니다<br>"
+            }
+
+            square.innerHTML += language;
+
+          /*  //친구 출력 안 됨!!!!!!!
+            for (var i = 0; i < frm.fri.length; i++) {
+                if (frm.fri[i].checked) {
+                    bestfriends += frm.fri[i].value;
+                }
+            }
+
+            square.innerHTML += bestfriends + "입니다<br>";
+            */
+
+        }
+    </script>
+</head>
+
+<body>
+    <form name="frm">
+        <table>
+            <caption><b>Radio&Check</b></caption>
+            <tr height="30">
+                <td>
+                    <b>최종학력 선택하시오</b>
+                    <!-- radio는 name이 동일해야한다 -->
+                    <input type="radio" name="grade" value="고등학교">고등학교 &nbsp;
+                    <input type="radio" name="grade" value="전문대학">전문대학 &nbsp;
+                    <input type="radio" name="grade" value="일반대학" checked>일반대학 &nbsp;
+                    <input type="radio" name="grade" value="대학원">대학원 &nbsp;
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>본인이 가능한 프르그램 언어</b>
+                    <!-- checkBox는 중복선택 가능, name 동일해야한다-->
+                    <input type="checkbox" name="lang" value="C언어">C언어&nbsp;
+                    <input type="checkbox" name="lang" value="JAVA">JAVA&nbsp;
+                    <input type="checkbox" name="lang" value="ORACLE">ORACLE&nbsp;
+                    <input type="checkbox" name="lang" value="SPRING">SPRING&nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>이미지선택</b>
+                    <input type="file">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>우리반에서 가장 친한 친구</b>
+                    <select>
+                        <option  value="성현">성현</option>
+                        <option  value="연주">연주</option>
+                        <option  value="영환">영환</option>
+                        <option  value="주영" selected>주영</option>
+                        <option  value="시온">시온</option>
+                        <option  value="순영">순영</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b id="colout">가장 좋아하는 색은</b>
+                    <input type="color" onchange="goColor(this.value)">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 키는 몇 cm입니까?</b>
+                    <input type="number" name="height" min="150" max="200" value="150" step="2"
+                        onchange="goHeight(this.value)">cm
+
+                    <span id="out3">0</span>cm
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 몸무게는 몇 kg입니까?</b>
+                    <input type="number" name="weight" min="40" max="100" value="50" step="2"
+                        onchange="goWeight(this.value)">kg
+
+                    <span id="out1">0</span>kg
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>당신의 생년월일은?</b>
+                    <input type="date" name="day" onchange="goDate()">
+                    <span id="out2"></span>
+                </td>
+            </tr>
+            <tr>
+                <td align="center">
+                    <input type="button" value="서버에 전송" onclick="writeInfo()">
+                </td>
+            </tr>
+        </table>
+
+        <div id="square"></div>
+    </form>
+</body>
+
+</html>

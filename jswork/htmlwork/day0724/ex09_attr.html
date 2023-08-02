@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+            //h3아래 b태그 글자색 배경 변경
+            $("h3 b").css({
+                "color":"blueviolet",
+                "backgroundColor":"pink"
+            });
+
+            //h3아래 span도 글자체나 글자색
+            $("h3 span").css({
+                "color":"yellowgreen",
+                "fontFamily":"궁서체"
+            });
+
+            //이벤트 b태그 클릭 시 
+            $("h3 b").click(function(){
+                var imgSrc=$(this).next().next().text();
+                var imgName=$(this).text();
+
+            $("img.photo").attr("src",imgSrc);
+            $("h3").eq(3).html(imgName);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h3>
+        <b>에그 샌드위치</b>
+        <br>
+        <span>../Food/1.jpg</span>
+    </h3>
+    
+    <h3>
+        <b>숯불 꼬치구이</b>
+        <br>
+        <span>../Food/2.jpg</span>
+    </h3>
+
+    <h3>
+        <b>순두부 라면</b>
+        <br>
+        <span>../Food/12.jpg</span>
+    </h3>
+    
+    <hr>
+    <img src="" class="photo"><!--위의 span태그에 있는 이미지 출력-->
+    <br>
+    <h3></h3><!--요기에 b태그에 있는 음식명 출력-->
+    
+</body>
+</html>

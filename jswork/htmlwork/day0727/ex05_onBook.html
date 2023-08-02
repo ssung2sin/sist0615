@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <style>
+        button{
+            width: 150px;
+            height: 50px;
+            border-radius: 20px;
+            font-size: 1.3em;
+            font-family: 'Gaegu';
+            cursor: pointer;
+        }
+
+        button.a{
+            background-color: blueviolet;
+            color: white;
+        }
+
+        button.b{
+            background-color: green;
+            color: lightgray;
+        }
+
+        button.c{
+            background-color: blanchedalmond;
+            color: black;
+        }
+
+        div{
+            position: absolute;
+            width: 400px;
+            height: 150px;
+            font-size: 20pt;
+            font-family: "Nanum Pen Script";
+        }
+
+        #one{
+            left: 100px;
+            top: 100px;
+        }
+
+        #two{
+            left: 300px;
+            top: 100px;
+        }
+
+        #three{
+            left: 700px;
+            top: 100px;
+        }
+
+        #four{
+            left: 1100px;
+            top: 100px;
+        }
+
+        #three h3:hover{
+            cursor: pointer;
+            background-color: gray;
+        }
+
+        #result{
+            left: 300px;
+            top: 500px;
+            font-size: 2em;
+            text-align: center;
+            width: 800px;
+            height: 220px;
+            border: 3px solid green;
+            border-radius: 30px;
+            padding-top: 20px;
+        }
+
+        #inwon{
+            margin-left: 10px;
+            margin-top: 10px;
+            font-family: "Gaegu";
+        }
+    </style>
+    <script>
+        $(function(){
+
+            var theater="",movie="",num="",time1="";
+
+            //#one버튼 추가
+            var b="<button type='button' id='btn1' class='a'>영화예매</button>";
+            $("#one").append(b);
+
+            //버튼1 이벤트
+            $("#btn1").click(function(){
+
+                var b2="<button type='button' id='btn2' class='b'>극장선택</button>";
+                b2+="&nbsp;<button type='button' id='btn3' class='c'>영화선택</button>";
+                $("#two").html(b2);
+            })
+
+            //버튼2는 나중에 동적생성
+            $(document).on("click","#btn2",function(){
+                var s="<h3 class='theater'>CGV강남점</h3>";
+                s+="<h3 class='theater'>CGV역삼점</h3>";
+                s+="<h3 class='theater'>CGV강남점</h3>";
+                s+="<h3 class='theater'>CGV잠실점</h3>";
+
+                $("#three").html(s);
+            })
+
+            //버튼3
+            $(document).on("click","#btn3",function(){
+                var m="<h3 class='movie'>엘리멘탈</h3>";
+                m+="<h3 class='movie'>범죄도시3</h3>";
+                m+="<h3 class='movie'>인어공주</h3>";
+                m+="<h3 class='movie'>분노의 질주</h3>";
+
+                $("#three").html(m);
+            })
+            
+            //영화관,영화제목 클릭시 이벤트
+            $(document).on("click","#three h3",function(){
+
+                //클릭한 h3 태그에서 class를 얻는다
+                var select=$(this).attr("class");
+
+                if(select=='theater'){
+                    theater="극장명: "+$(this).text();
+                    movie="";
+                }
+
+                if(select=='movie')
+                {
+                    movie="영화명: "+$(this).text();
+                    num="",time1="";
+                 //인원수
+                var tag="";
+                
+                var times=["09:00","13:00","15:20","18:50","20:30"];
+
+                $.each(times,function(i,elt){
+
+                    tag+="<input type='radio' name='time' value='"+times[i]+"'>"+times[i]+"<br>";
+                })
+
+                tag+="<input type='number' min='1' max='5' value='0' id='inwon'>";
+
+                $("#four").html(tag);
+                }
+
+                $("#result").html(theater+"<br>"+movie);
+
+                $(document).on("change","#inwon",function(){
+                    num="인원수: "+$(this).val()+"명";
+                    $("#result").html(theater+"<br>"+movie+"<br>"+time1+"<br>"+num);
+                })
+
+                $(document).on("click","input[name='time']:checked",function(){
+                    time1="예매시간: "+$(this).val();
+                    $("#result").html(theater+"<br>"+movie+"<br>"+time1+"<br>"+num);
+                })
+                
+
+            })
+
+            
+        })
+    </script>
+</head>
+<body>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>
+    <div id="result"></div>
+</body>
+</html>
