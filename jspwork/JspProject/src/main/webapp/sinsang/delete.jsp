@@ -12,12 +12,14 @@
 <title>Insert title here</title>
 </head>
 <body>
+
 <%
-	//삭제 메소드 호출
+		
+
 	String num=request.getParameter("num");
 	SinsangDao dao=new SinsangDao();
 	dao.deleteSinsang(num);
-	//리스트로 이동
+	
 	response.sendRedirect("list.jsp");
 %>
 
