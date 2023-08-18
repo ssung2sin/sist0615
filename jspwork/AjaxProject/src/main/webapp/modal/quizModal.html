@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Gaegu:wght@300&family=Nanum+Pen+Script&family=Sunflower:wght@300&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title>Insert title here</title>
+<script>
+	$(function(){
+		$(".subject").click(function(){
+			var sub=$(this).text();
+			var writer=$(this).attr("writer");
+			var title=$(this).attr("title");
+			//alert(title);
+			$(".modal-title").html(sub);
+			$(".photo-title").html(writer);
+			$("img.photo").attr("src",title);
+			
+			
+			$("#myModal").modal();
+		})
+	})
+	
+</script>
+</head>
+<body>
+	<table class="table table-bordered" style="width: 500px; margin-top: 50px;" >
+		<tr class="table-info" style="background-color: aqua;">
+			<th width="60">번호</th>
+			<th width="250">제목</th>
+			<th width="120">작성자</th>
+			<th width="60">조회</th>
+		</tr>
+		<tr>
+			<td align="center">10</td>
+			<td class="subject" title="../image/cartoonImg/16.png" writer="김영준">자바스터디 모임</td>
+			<td align="center">김영준</td>
+			<td align="center">0</td>
+		</tr>
+		<tr>
+			<td align="center">11</td>
+			<td class="subject" title="../image/cartoonImg/15.png" writer="최진평">맥북 자바공부</td>
+			<td align="center">최진평</td>
+			<td align="center">0</td>
+		</tr>
+		<tr>
+			<td align="center">10</td>
+			<td class="subject" title="../image/cartoonImg/11.png" writer="위시온">자바교육</td>
+			<td align="center">위시온</td>
+			<td align="center">0</td>
+		</tr>
+		<tr>
+			<td align="center">10</td>
+			<td class="subject" title="../image/cartoonImg/09.png" writer="윤호석">김포출퇴근헬</td>
+			<td align="center">윤호석</td>
+			<td align="center">0</td>
+		</tr>
+		<tr>
+			<td align="center">10</td>
+			<td class="subject" title="../image/cartoonImg/19.png" writer="최현성">최성현이다</td>
+			<td align="center">최현성</td>
+			<td align="center">0</td>
+		</tr>
+	</table>
+</body>
+<div style="width: 500px; text-align: center;">
+	<ul class="pagination">
+		<li><a href="#">1</a></li>
+		<li><a href="#">2</a></li>
+		<li><a href="#">3</a></li>
+		<li><a href="#">4</a></li>
+		<li><a href="#">5</a></li>
+	</ul>
+	
+	<div class="container">
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-sm">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p class="photo-title">Some text in the modal.</p>
+          <img src="" class="photo" style="width: 200px;">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+</div>
+</html>

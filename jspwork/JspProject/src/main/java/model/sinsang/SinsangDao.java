@@ -95,4 +95,8 @@ public class SinsangDao {
 		}
 		
 	}
+	
+	public void updateSinsang(SinsangDto dto) {
+		
+	}
 }
