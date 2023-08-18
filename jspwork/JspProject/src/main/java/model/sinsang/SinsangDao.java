@@ -96,6 +96,7 @@ public class SinsangDao {
 		
 	}
 	
+<<<<<<< HEAD
 	//하나의 데이터 조회
 	public SinsangDto getData(String num) {
 		SinsangDto dto=new SinsangDto();
@@ -156,5 +157,9 @@ public class SinsangDao {
 			db.dbClose(pstmt, conn);
 		}
 		
+=======
+	public void updateSinsang(SinsangDto dto) {
+		
+>>>>>>> sist_seongshin
 	}
 }

@@ -14,7 +14,11 @@
 <%
 	String num=request.getParameter("num");
 	SinsangDao dao=new SinsangDao();
+<<<<<<< HEAD
 	SinsangDto dto=dao.getData(num);
+=======
+	//SinsangDto dto=dao.getData(num);
+>>>>>>> sist_seongshin
 %>
 <body>
 	<form action="updateAction.jsp" method="post">
