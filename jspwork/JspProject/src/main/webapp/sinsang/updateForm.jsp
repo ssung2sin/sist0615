@@ -29,14 +29,14 @@
 			<tr>
 				<th>이름</th>
 				<td>
-					<input type="text" name="name" value="<%=dto.getName() %>" placeholder="이름입력" required="required" class="form-control" style="width: 150px">
+					<input type="text" name="name" value="<%= %>" placeholder="이름입력" required="required" class="form-control" style="width: 150px">
 				</td>
 			</tr>
 			
 			<tr>
 				<th>주소</th>
 				<td>
-					<input type="text" name="addr" value="<%=dto.getAddr() %>" placeholder="간단주소입력" required="required" class="form-control" style="width: 250px">
+					<input type="text" name="addr" value="<%= %>" placeholder="간단주소입력" required="required" class="form-control" style="width: 250px">
 				</td>
 			</tr>
 			

@@ -161,9 +161,13 @@
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Context docBase="AjaxProject" path="/AjaxProject" reloadable="true" source="org.eclipse.jst.jee.server:AjaxProject"/></Host>
 =======
       <Context docBase="SubmissionJspProject" path="/SubmissionJspProject" reloadable="true" source="org.eclipse.jst.jee.server:SubmissionJspProject"/><Context docBase="AjaxProject" path="/AjaxProject" reloadable="true" source="org.eclipse.jst.jee.server:AjaxProject"/><Context docBase="LittleJspProject" path="/LittleJspProject" reloadable="true" source="org.eclipse.jst.jee.server:LittleJspProject"/></Host>
+>>>>>>> sist_seongshin
+=======
+      <Context docBase="JspMiniProject" path="/JspMiniProject" reloadable="true" source="org.eclipse.jst.jee.server:JspMiniProject"/></Host>
 >>>>>>> sist_seongshin
     </Engine>
   </Service>
