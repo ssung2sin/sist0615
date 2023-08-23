@@ -96,7 +96,70 @@ public class SinsangDao {
 		
 	}
 	
+<<<<<<< HEAD
+	//하나의 데이터 조회
+	public SinsangDto getData(String num) {
+		SinsangDto dto=new SinsangDto();
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select * from sinsang where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			
+			rs=pstmt.executeQuery();
+			
+			//하나의 데이터 조회시 if
+			if(rs.next()) {
+				dto.setNum(rs.getString("num"));
+				dto.setName(rs.getString("name"));
+				dto.setAddr(rs.getString("addr"));
+				dto.setSdate(rs.getTimestamp("sdate"));
+				
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return dto;
+	}
+	
+	//수정
 	public void updateSinsang(SinsangDto dto) {
 		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		
+		//update 테이블명 set 변수=? , 변수=? where 변수=?
+		String sql="update sinsang set name=?, addr=? where num=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			//?바인딩
+			pstmt.setString(1, dto.getName());
+			pstmt.setString(2, dto.getAddr());
+			pstmt.setString(3, dto.getNum());
+			
+			//실행
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+		
+=======
+	public void updateSinsang(SinsangDto dto) {
+		
+>>>>>>> sist_seongshin
 	}
 }
